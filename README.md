@@ -1,6 +1,6 @@
 ## RailsDatatables
 
-A simpler, Rails-friendly interface to using the DataTables jQuery library from http://datatables.net.
+A simpler, Rails-friendly interface to using the [DataTables](http://datatables.net) jQuery library.
 
 ### Prerequisites
 Make sure you have jQuery.js and jQuery.dataTables.js in /public/javascripts/ and that they're included in your layout.
