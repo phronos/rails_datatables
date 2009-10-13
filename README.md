@@ -43,7 +43,7 @@ Add a datatable method on your controller to return JSON
 * Return the total number of objects  
 * Add a method to handle sorting - DataTables returns the column that is being sorted (0 - n), so you need to know which column is which and sort on it.
     
-### Example
+### AJAX Example
     
 #### Datatable view example - datatable.html.erb
 
