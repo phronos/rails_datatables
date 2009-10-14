@@ -99,18 +99,6 @@ Add a datatable method on your controller to return JSON
       return conditions.join(" AND ")
     end
 
+### Credits
 
-Copyright (c) 2009 Phronos, released under the MIT license
-RailsDatatables
-===============
-
-Introduction goes here.
-
-
-Example
-=======
-
-Example goes here.
-
-
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Copyright (c) 2009 [Phronos](http://phronos.com), released under the MIT license
