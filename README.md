@@ -8,8 +8,10 @@ Make sure you have jQuery.js and jQuery.dataTables.js in /public/javascripts/ an
 ### Setup
 
 Give table a class of 'datatable' so that the Javascript knows which tables to alter.
-Add <thead> around the table header (These elements will associate to the columns array created below, allowing sorting).
-Add <tbody> around the table rows (These are the elements that will be sorted and paginated.)
+
+Add thead around the table header (These elements will associate to the columns array created below, allowing sorting).
+
+Add tbody around the table rows (These are the elements that will be sorted and paginated.)
 
 Activate using <%= datatable() %>, passing in the columns, how to filter them (sorting type), and any other settings (ajax source, search?, label for search, processing image)
 
