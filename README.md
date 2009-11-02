@@ -7,12 +7,35 @@ Make sure you have jQuery.js and jQuery.dataTables.js in /public/javascripts/ an
 
 ### Setup
 
-Give table class of 'datatable'.
+Give table a class of 'datatable' so that the Javascript knows which tables to alter.
+Add <thead> around the table header (These elements will associate to the columns array created below, allowing sorting).
+Add <tbody> around the table rows (These are the elements that will be sorted and paginated.)
 
 Activate using <%= datatable() %>, passing in the columns, how to filter them (sorting type), and any other settings (ajax source, search?, label for search, processing image)
 
-    <% columns = [{:reverse => true, :type => 'html', :class => "first"}, nil, {:class => "last"}] %>
+    <% columns = [{:type => 'html', :class => "first"}, {:type => 'html'}, {:type => 'html'}, {:type => nil, :class => "last"}] %>
     <%= datatable(@objects.size, columns, {:sort_by => "[0, 'desc']", :processing => image_tag("spinner.gif") }) %>
+
+    <table id='users' class='datatable'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Account Level</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- @users.each do |user| -%>
+          <tr id="<%= dom_id(user) %>">
+            <td><%= user.name %></td>
+            <td><%= user.account.account_level.name %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to "Edit", edit_system_user_path(user) %></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
 
 ### Options
 
