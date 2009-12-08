@@ -1,5 +1,5 @@
 module RailsDatatables
-  def datatable(rows, columns, opts={})
+  def datatable(columns, opts={})
     sort_by = opts[:sort_by] || nil
     additional_data = opts[:additional_data] || {}
     search = opts[:search].present? ? opts[:search].to_s : "true"

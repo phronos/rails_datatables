@@ -16,7 +16,7 @@ Add tbody around the table rows (These are the elements that will be sorted and 
 Activate using <%= datatable() %>, passing in the columns, how to filter them (sorting type), and any other settings (ajax source, search?, label for search, processing image)
 
     <% columns = [{:type => 'html', :class => "first"}, {:type => 'html'}, {:type => 'html'}, {:type => nil, :class => "last"}] %>
-    <%= datatable(@objects.size, columns, {:sort_by => "[0, 'desc']", :processing => image_tag("spinner.gif") }) %>
+    <%= datatable(columns, {:sort_by => "[0, 'desc']", :processing => image_tag("spinner.gif") }) %>
 
     <table id='users' class='datatable'>
       <thead>
