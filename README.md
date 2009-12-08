@@ -7,7 +7,7 @@ Make sure you have jQuery.js and jQuery.dataTables.js in /public/javascripts/ an
 
 ### Setup
 
-Give table a class of 'datatable' so that the Javascript knows which tables to alter.
+Give table a class of 'datatable' so that the Javascript knows which table to alter. NOTE: If you want to use multiple tables on a single page, include the :table_dom_id in the options hash to specify the ID table to be altered.
 
 Add thead around the table header (These elements will associate to the columns array created below, allowing sorting).
 
@@ -49,6 +49,7 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :processing - string, the text or image to display while processing data. Defaults to "Processing".
     :persist_state - boolean, remember the sorting and page of the tables for the user. Defaults to true.
     :additional_data - hash, pass along additional data, such as filter values. Default is none.
+    :table_dom_id - string, the ID of the table to alter. If nothing is passed, it will look for a class of 'datatable'. Necessary if you want to have multiple DataTables on a single page.
     
 #### Column Options
 

@@ -6,6 +6,7 @@ module RailsDatatables
     search_label = opts[:search_label] || "Search"
     processing = opts[:processing] || "Processing"
     persist_state = opts[:persist_state].present? ? opts[:persist_state].to_s : "true"
+    table_dom_id = opts[:table_dom_id] ? "##{opts[:table_dom_id]}" : ".datatable"
     
     ajax_source = opts[:ajax_source] || nil
     server_side = opts[:ajax_source].present?
@@ -19,7 +20,7 @@ module RailsDatatables
     %Q{
     <script type="text/javascript">
     $(function() {
-        $('.datatable').dataTable({
+        $('#{table_dom_id}').dataTable({
           "oLanguage": {
             "sSearch": "#{search_label}",
             "sProcessing": '#{processing}'
