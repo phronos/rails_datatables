@@ -57,8 +57,8 @@ module RailsDatatables
         if c.nil? or c.empty? 
           "null"
         else
-          searchable = c[:searchable].present? ? c[:searchable].to_s : "true"
-          sortable = c[:sortable].present? ? c[:sortable].to_s : "true"
+          searchable = c[:searchable].to_s.present? ? c[:searchable].to_s : "true"
+          sortable = c[:sortable].to_s.present? ? c[:sortable].to_s : "true"
           
           "{
           'sType': '#{c[:type] || "string"}',
