@@ -7,6 +7,7 @@ module RailsDatatables
     processing = opts[:processing] || "Processing"
     persist_state = opts[:persist_state].present? ? opts[:persist_state].to_s : "true"
     table_dom_id = opts[:table_dom_id] ? "##{opts[:table_dom_id]}" : ".datatable"
+    display_length = opts[:display_length] || 25
     
     ajax_source = opts[:ajax_source] || nil
     server_side = opts[:ajax_source].present?
@@ -26,7 +27,7 @@ module RailsDatatables
             "sProcessing": '#{processing}'
           },
           "sPaginationType": "full_numbers",
-          "iDisplayLength": 25,
+          "iDisplayLength": #{display_length},
           "bProcessing": true,
           "bServerSide": #{server_side},
           "bLengthChange": false,
