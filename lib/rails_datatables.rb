@@ -8,6 +8,7 @@ module RailsDatatables
     persist_state = opts[:persist_state].present? ? opts[:persist_state].to_s : "true"
     table_dom_id = opts[:table_dom_id] ? "##{opts[:table_dom_id]}" : ".datatable"
     display_length = opts[:display_length] || 25
+    append = opts[:append] || nil
     
     ajax_source = opts[:ajax_source] || nil
     server_side = opts[:ajax_source].present?
@@ -44,7 +45,7 @@ module RailsDatatables
       				fnCallback(json);
       			} );
           }
-        });
+        })#{append};
     });
     </script>
     }
