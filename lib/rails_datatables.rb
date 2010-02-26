@@ -7,7 +7,9 @@ module RailsDatatables
     processing = opts[:processing] || "Processing"
     persist_state = opts[:persist_state].present? ? opts[:persist_state].to_s : "true"
     table_dom_id = opts[:table_dom_id] ? "##{opts[:table_dom_id]}" : ".datatable"
-    display_length = opts[:display_length] || 25
+    per_page = opts[:per_page] || opts[:display_length]|| 25
+    no_records_message = opts[:no_records_message] || nil
+    
     append = opts[:append] || nil
     
     ajax_source = opts[:ajax_source] || nil
@@ -28,7 +30,7 @@ module RailsDatatables
             "sProcessing": '#{processing}'
           },
           "sPaginationType": "full_numbers",
-          "iDisplayLength": #{display_length},
+          "iDisplayLength": #{per_page},
           "bProcessing": true,
           "bServerSide": #{server_side},
           "bLengthChange": false,
@@ -36,6 +38,7 @@ module RailsDatatables
           "bFilter": #{search},
           #{"'aaSorting': [#{sort_by}]," if sort_by}
           #{"'sAjaxSource': '#{ajax_source}'," if ajax_source}
+          #{"'oLanguage': {'sZeroRecords': '#{no_records_message}'}," if no_records_message}
           "aoColumns": [
       			#{formatted_columns(columns)}
       				],

@@ -50,8 +50,9 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :persist_state - boolean, remember the sorting and page of the tables for the user. Defaults to true.
     :additional_data - hash, pass along additional data, such as filter values. Default is none.
     :table_dom_id - string, the ID of the table to alter. If nothing is passed, it will look for a class of 'datatable'. Necessary if you want to have multiple DataTables on a single page.
-    :display_length - the number of rows to show per page
+    :per_page - the number of rows to show per page (renamed from display_length)
     :append - functions to all at the end of the dataTable() call. Useful for [Datatables plugins](http://www.datatables.net/plug-ins/api)
+    :no_records_message - Message to display if no records are found, whether on load or after searching
     
 #### Column Options
 
