@@ -53,6 +53,7 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :per_page - the number of rows to show per page (renamed from display_length)
     :append - functions to all at the end of the dataTable() call. Useful for [Datatables plugins](http://www.datatables.net/plug-ins/api)
     :no_records_message - Message to display if no records are found, whether on load or after searching
+    :auto_width - Automatically adjust the width of the columns. Defaults to true.
     
 #### Column Options
 
