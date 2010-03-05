@@ -102,7 +102,7 @@ Add a datatable method on your controller to return JSON
       current_page = (params[:iDisplayStart].to_i/params[:iDisplayLength].to_i rescue 0)+1
       @current_objects = Object.paginate :page => current_page, 
                                          :include => [:user], 
-                                         :order => "#{datatable_columns(params[:iSortCol_0])} #{params[:iSortDir_0] || "DESC"}", 
+                                         :order => "#{datatable_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "DESC"}", 
                                          :conditions => conditions,
                                          :per_page => params[:iDisplayLength]
     end
