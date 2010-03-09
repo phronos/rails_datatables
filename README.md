@@ -54,6 +54,7 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :append - functions to all at the end of the dataTable() call. Useful for [Datatables plugins](http://www.datatables.net/plug-ins/api)
     :no_records_message - Message to display if no records are found, whether on load or after searching
     :auto_width - Automatically adjust the width of the columns. Defaults to true.
+    :row_callback - a function to run on each row in the table. Inserted in to "'fnRowCallback': function( nRow, aData, iDisplayIndex ) {  }". See [documentation for fnRowCallback](http://www.datatables.net/usage/callbacks) for more information.
     
 #### Column Options
 
@@ -128,6 +129,9 @@ Add a datatable method on your controller to return JSON
       conditions << "(objects.description ILIKE '%#{params[:sSearch]}%' OR users.name ILIKE '%#{params[:sSearch]}%')" if(params[:sSearch])
       return conditions.join(" AND ")
     end
+    
+### Note
+There is a more functionality offered by DataTables than this plugin currently provides. We add to it as we find need for other features. If there's a feature of DataTables that you'd like to see, fork this repo and add it so we can all benefit.
 
 ### Credits
 

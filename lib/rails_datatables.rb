@@ -10,6 +10,7 @@ module RailsDatatables
     per_page = opts[:per_page] || opts[:display_length]|| 25
     no_records_message = opts[:no_records_message] || nil
     auto_width = opts[:auto_width].present? ? opts[:auto_width].to_s : "true"
+    row_callback = opts[:row_callback] || nil
 
     append = opts[:append] || nil
 
@@ -44,6 +45,7 @@ module RailsDatatables
           "aoColumns": [
       			#{formatted_columns(columns)}
       				],
+      		#{"'fnRowCallback': function( nRow, aData, iDisplayIndex ) { #{row_callback} }" if row_callback},
           "fnServerData": function ( sSource, aoData, fnCallback ) {
             aoData.push( #{additional_data_string} );
             $.getJSON( sSource, aoData, function (json) {
