@@ -45,7 +45,7 @@ module RailsDatatables
           "aoColumns": [
       			#{formatted_columns(columns)}
       				],
-      		#{"'fnRowCallback': function( nRow, aData, iDisplayIndex ) { #{row_callback} }" if row_callback},
+      		#{"'fnRowCallback': function( nRow, aData, iDisplayIndex ) { #{row_callback} }," if row_callback}
           "fnServerData": function ( sSource, aoData, fnCallback ) {
             aoData.push( #{additional_data_string} );
             $.getJSON( sSource, aoData, function (json) {
