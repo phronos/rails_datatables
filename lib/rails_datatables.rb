@@ -29,6 +29,7 @@ module RailsDatatables
         $('#{table_dom_id}').dataTable({
           "oLanguage": {
             "sSearch": "#{search_label}",
+            #{"'sZeroRecords': '#{no_records_message}'," if no_records_message}
             "sProcessing": '#{processing}'
           },
           "sPaginationType": "full_numbers",
@@ -41,7 +42,6 @@ module RailsDatatables
           "bAutoWidth": #{auto_width},
           #{"'aaSorting': [#{sort_by}]," if sort_by}
           #{"'sAjaxSource': '#{ajax_source}'," if ajax_source}
-          #{"'oLanguage': {'sZeroRecords': '#{no_records_message}'}," if no_records_message}
           "aoColumns": [
       			#{formatted_columns(columns)}
       				],
