@@ -16,7 +16,9 @@ module RailsDatatables
 
     ajax_source = opts[:ajax_source] || nil
     server_side = opts[:ajax_source].present?
-
+    jquery_ui = opts[:jquery_ui] || nil
+    dom = opts[:dom] || nil
+    
     additional_data_string = ""
     additional_data.each_pair do |name,value|
       additional_data_string = additional_data_string + ", " if !additional_data_string.blank? && value
@@ -40,8 +42,10 @@ module RailsDatatables
           "bStateSave": #{persist_state},
           "bFilter": #{search},
           "bAutoWidth": #{auto_width},
+          #{"'sDom': [#{dom}]," if dom}
           #{"'aaSorting': [#{sort_by}]," if sort_by}
           #{"'sAjaxSource': '#{ajax_source}'," if ajax_source}
+          #{"'bJQueryUI': #{jquery_ui}," if jquery_ui}
           "aoColumns": [
       			#{formatted_columns(columns)}
       				],
@@ -68,11 +72,13 @@ module RailsDatatables
         else
           searchable = c[:searchable].to_s.present? ? c[:searchable].to_s : "true"
           sortable = c[:sortable].to_s.present? ? c[:sortable].to_s : "true"
-
           "{
           'sType': '#{c[:type] || "string"}',
           'bSortable':#{sortable},
-          'bSearchable':#{searchable}
+          'bSearchable':#{searchable},
+          #{",'asSorting':#{c[:sorting].inspect}" if c[:sorting]}
+          #{",'bVisible':'#{c[:visible]}'" if c[:visible]}
+          #{",'iDataSort':#{c[:datasort]}" if c[:datasort]}
           #{",'sClass':'#{c[:class]}'" if c[:class]}
           }"
         end
