@@ -55,6 +55,8 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :no_records_message - Message to display if no records are found, whether on load or after searching
     :auto_width - Automatically adjust the width of the columns. Defaults to true.
     :row_callback - a function to run on each row in the table. Inserted in to "'fnRowCallback': function( nRow, aData, iDisplayIndex ) {  }". See [documentation for fnRowCallback](http://www.datatables.net/usage/callbacks) for more information.
+    :jquery_ui - boolean, set true if you want to enable jQueryUI for this datatable
+    :dom - string, configuration for layout of additional table controls (see datatables documentation for sDom)
     
 #### Column Options
 
@@ -62,7 +64,10 @@ Activate using <%= datatable() %>, passing in the columns, how to filter them (s
     :type - string, the type of content in the column, for non-Ajax tables. 'html' will strip all HTML and sort on the inner value, as a string. Default is string.
     :sortable - boolean, allow this column to be sorted on. Default is true.
     :searchable - boolean, allow this column to be searched, for non-Ajax tables. Default is true.
-
+    :datasort - integer, use the indicated (0-indexed) column for sorting on this column
+    :visible - boolean, set false to hide this column
+    :sorting - array, controls the default sorting direction, and even alter the behaviour of the sort handler (i.e. only allow ascending sorting etc) using this parameter.
+    
 #### AJAX Options
   
   When you're working with large datasets it's not reasonable to load everything on page load. Use an :ajax_source to load just the records that are being displayed, do custom searching (DB, Solr, etc).
